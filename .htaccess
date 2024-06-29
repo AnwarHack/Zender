@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?/$1 [QSA,L]
+
+RewriteRule ^(system|vendor|templates|uploads)/$ - [R=404]
+RewriteRule ^(system|vendor|templates|uploads)/.*/$ - [R=404]
+RewriteRule ^templates/.*\.(tpl|scss|gitkeep)$ - [R=404]
+RewriteRule ^(system|vendor)/.*\.(php|dat|tpl|scss|gitkeep|inc|json|log)$ - [R=404]
